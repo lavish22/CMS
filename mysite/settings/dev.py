@@ -12,7 +12,8 @@ ALLOWED_HOSTS = ['*']
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 INSTALLED_APPS = INSTALLED_APPS + [
-    'debug_toolbar'
+    'debug_toolbar',
+    'django_extensions'             #python3 manage.py shell_plus --ipython 
 ]
 
 MIDDLEWARE = MIDDLEWARE + [
