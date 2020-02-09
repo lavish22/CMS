@@ -6,6 +6,7 @@ from wagtail.core.models import Page, Orderable
 from wagtail.admin.edit_handlers import FieldPanel,PageChooserPanel,StreamFieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.core.fields import RichTextField,StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from streams import blocks
 
 class HomePageCarouselImages(Orderable):
@@ -25,7 +26,7 @@ class HomePageCarouselImages(Orderable):
         ImageChooserPanel("carousel_image")
     ]
 
-class HomePage(Page):
+class HomePage(RoutablePageMixin, Page):
     '''
     Home page title
     '''
@@ -71,6 +72,11 @@ class HomePage(Page):
         null = True,
         blank = True 
     )
+
+    @route(r'^subscribe/$')
+    def the_subscribe_page(self, request, *args, **kwargs):
+        context = self.get_context(request, *args, **kwargs)
+        return render(request, "home/subscribe.html", context)
 
     class Meta:
         verbose_name = "Page"
