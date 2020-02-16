@@ -11,6 +11,11 @@ class FlexPage(Page):
     '''
 
     template  = "flex/flex_page.html"
+    subpage_types = ['flex.FlexPage', 'contact.ContactPage']        #this will prevent anyone from 
+    parent_page_types = [                                           #creating any page, anywhere
+        'flex.FlexPage',                                            #kind of force page structure, hirarchy
+        'home.HomePage',
+    ]
 
     content =  StreamField (
         [

@@ -3,10 +3,12 @@ from django.db import models
 from modelcluster.fields import ParentalKey
 
 from wagtail.core.models import Page, Orderable
-from wagtail.admin.edit_handlers import FieldPanel,PageChooserPanel,StreamFieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel,PageChooserPanel,StreamFieldPanel, InlinePanel, MultiFieldPanel, ObjectList, TabbedInterface
 from wagtail.core.fields import RichTextField,StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
+from wagtail.api import APIField
+
 from streams import blocks
 
 class HomePageCarouselImages(Orderable):
@@ -26,11 +28,23 @@ class HomePageCarouselImages(Orderable):
         ImageChooserPanel("carousel_image")
     ]
 
+    api_fields = [
+        APIField("carousel_image"),
+    ]
+
 class HomePage(RoutablePageMixin, Page):
     '''
-    Home page title
+    Home page title, for APIv2 you can also GET specific keys only by extending search_fields here. Usefull in Single Page Applications
     '''
     #max_count = 1 
+    subpage_types = [
+        'blog.BlogListingPage',
+        'contact.ContactPage',
+        'flex.FlexPage',
+    ]
+    parent_page_type = [
+        'wagtailcore.Page'
+    ]
     templates = "home/home_page.html"
     banner_title = models.CharField(max_length = 100,blank=False,null=True )
     banner_subtitle = RichTextField(features=["bold","italic"])
@@ -49,6 +63,14 @@ class HomePage(RoutablePageMixin, Page):
         related_name="+"
     )
     content_panels = Page.content_panels + [
+        StreamFieldPanel("content"),
+        MultiFieldPanel(
+            [InlinePanel("carousel_images", max_num=5, min_num=1, label="Image")],
+            heading="Carousel Images",
+        ),
+    ]
+
+    banner_panels=[
         MultiFieldPanel(
             [
                 FieldPanel("banner_title"),
@@ -57,27 +79,42 @@ class HomePage(RoutablePageMixin, Page):
                 PageChooserPanel("banner_cta"),
             ], heading = "Banner Options"
         ),
-        StreamFieldPanel("content"),
-        MultiFieldPanel(
-            [
-                InlinePanel("carousel_images", max_num=5, min_num=1, label="Image"),        
-            ], heading = "Carousel Images"
-        )
     ]
 
-    content =  StreamField (
+    # This is how you'd normally hide promote and settings tabs
+    # promote_panels = []
+    # settings_panels = []
+
+    edit_handler = TabbedInterface(
         [
-            ("cta",blocks.CTAblock()),
-        ],
-        null = True,
-        blank = True 
+            ObjectList(content_panels, heading='Content'),
+            ObjectList(banner_panels, heading="Banner Settings"),
+            ObjectList(Page.promote_panels, heading='Promotional Stuff'),
+            ObjectList(Page.settings_panels, heading='Settings Stuff'),
+        ]
     )
+
+    content = StreamField([
+        ("cta", blocks.CTAblock()),
+    ], null=True, blank=True)
+
+    api_fields = [
+        APIField("banner_title"),
+        APIField("banner_subtitle"),
+        APIField("banner_image"),
+        APIField("banner_cta"),
+        APIField("carousel_images"),
+        APIField("content"),
+    ]
 
     @route(r'^subscribe/$')
     def the_subscribe_page(self, request, *args, **kwargs):
         context = self.get_context(request, *args, **kwargs)
         return render(request, "home/subscribe.html", context)
 
+    # # Here we are removing the help text. But to change it, simply change None to a string.
+    # HomePage._meta.get_field("title").help_text = None
+    
     class Meta:
         verbose_name = "Page"
         verbose_name_plural = "Pages"

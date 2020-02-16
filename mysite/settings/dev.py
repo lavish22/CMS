@@ -13,7 +13,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 INSTALLED_APPS = INSTALLED_APPS + [
     'debug_toolbar',
-    'django_extensions'             #python3 manage.py shell_plus --ipython 
+    'django_extensions',             #python3 manage.py shell_plus --ipython 
+    'wagtail.contrib.styleguide',
 ]
 
 MIDDLEWARE = MIDDLEWARE + [

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'blog', 
     'menus',
     'contact',
+    'core',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtail.api.v2',
 
     'modelcluster',
     'taggit',
@@ -63,6 +65,7 @@ INSTALLED_APPS = [
 
     'captcha',
     'wagtailcaptcha',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
