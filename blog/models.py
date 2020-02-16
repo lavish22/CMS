@@ -5,6 +5,9 @@ from django.shortcuts import render
 from django import forms
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
+
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.core.models import Page, Orderable
 from wagtail.admin.edit_handlers import (
@@ -212,6 +215,15 @@ class BlogDetailPage(Page):
             heading="Author(s)"
         ),
     ]
+
+    def save(self, *args, **kwargs):
+        """Create a template fragment key ---> delete the key"""
+        key = make_template_fragment_key(
+            "blog_post_preview",
+            [self.id]
+        )
+        cache.delete(key)
+        return super().save(*args, **kwargs)
 
 
 # First subclassed blog post page

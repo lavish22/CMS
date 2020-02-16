@@ -43,24 +43,6 @@
         </a>
       </div>
 
-
-Site Settings:
-{% if settings.site_settings.SocialMediaSettings.facebook %}
-    <a href= "{{settings.site_settings.SocialMediaSettings.facebook}}" >
-        <i class="fab fa-facebook-square"></i>
-    </a>
-{% endif %}    
-{% if settings.site_settings.SocialMediaSettings.twitter %}
-    <a href="{{settings.site_settings.SocialMediaSettings.twitter}}">
-        <i class="fab fa-twitter-square"></i>
-    </a>    
-{% endif %}    
-{% if settings.site_settings.SocialMediaSettings.youtube %}
-<a href="{{settings.site_settings.SocialMediaSettings.youtube}}">
-    <i class="fab fa-youtube-square"></i>
-</a>
-{% endif %}    
-
     {% for block in page.content %}
         {% include_block block %}
     {% endfor %}
