@@ -44,7 +44,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                {% cache 604800 navigation %}       <!-- cache it for one week-->
+                {% cache 604800 navigation %}       <!-- cache it for one week, delete cache if changed-->
                         {% for item in navigation.menu_items.all %}
                             <li>
                                 <a href="{{ item.link }}" class="nav-link"{% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
