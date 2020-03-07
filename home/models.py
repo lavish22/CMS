@@ -96,6 +96,8 @@ class HomePage(RoutablePageMixin, Page):
 
     content = StreamField([
         ("cta", blocks.CTAblock()),
+        ("simple_richtext",blocks.RichTextBlock()),
+        ("title_and_text_block",blocks.TitleAndTextBlock()),
     ], null=True, blank=True)
 
     api_fields = [

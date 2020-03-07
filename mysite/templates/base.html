@@ -22,7 +22,7 @@
 
         {# Global stylesheets #}
         <script src="https://kit.fontawesome.com/6008f7c949.js" crossorigin="anonymous"></script>
-        <link href="{% static 'css/bootstrap_simple.css' %}" rel="stylesheet" type="text/css" media="all">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
 
         {% block extra_css %}
@@ -31,67 +31,84 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-           
+        <header style="padding-top: 2.9rem">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">Site Name</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-         
-            <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                {% cache 604800 navigation %}       <!-- cache it for one week, delete cache if changed-->
-                        {% for item in navigation.menu_items.all %}
-                            <li>
-                                <a href="{{ item.link }}" class="nav-link"{% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
-                            </li>
-                        {% endfor %}
+                {% cache 604800 navigation %}        <!--cache it for one week, delete cache if changed-->
+                    {% for item in navigation.menu_items.all %}
+                        <li>
+                            <a href="{{ item.link }}" class="nav-link"{% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
                 {% endcache %}
-            </ul>
-        <!--    
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        -->
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-        </nav>
+            </nav>
+        </header>
         {% wagtailuserbar %}
 
         {% block content %}{% endblock %}
 
         {% cache 604800 footer %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
+                <footer class="page-footer text-light bg-dark">
+                <div class="container ">
+                    <div class="row">
+                    <div class="col-md-12 py-5">
+                        <div class="mb-5 flex-center text-center">
                         {% if settings.site_settings.SocialMediaSettings.facebook %}
                             <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
                             </a>
                         {% endif %}
                         {% if settings.site_settings.SocialMediaSettings.twitter %}
-                            <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}">
-                                <i class="fab fa-twitter"></i>
-                            </a>
+                        <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+                        </a>
                         {% endif %}
                         {% if settings.site_settings.SocialMediaSettings.youtube %}
-                            <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}">
-                                <i class="fab fa-youtube"></i>
-                            </a>
+                        <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}">
+                            <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+                        </a>
                         {% endif %}
+                        {% if settings.site_settings.SocialMediaSettings.linkedin %}
+                        <a class="li-ic">
+                            <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+                        </a>
+                        {% endif %}    
+                        {% if settings.site_settings.SocialMediaSettings.instagram %}
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+                        </a>
+                        {% endif %}
+                        <a href="#">  <!--SignUP-->
+                            <i class="fas fa-user-plus fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
+                        </a>
+                        </div>
                     </div>
+                    </div> <!-- Grid row-->
                 </div>
-            </div>
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                    <a href="localhost:8000"> Mysite.com </a>
+                </div>
+                </footer>
         {% endcache %}
 
         {# Global javascript #}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
         <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
 
         {% block extra_js %}

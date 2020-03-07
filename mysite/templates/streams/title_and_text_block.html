@@ -1,4 +1,6 @@
-<div>
-    <h2>{{ self.title }}</h2>
-    <p> {{ self.text }} </p>       
-</div>
+{% load wagtailcore_tags %}
+
+<div class="container">
+    <h3>{{self.title}}</h3>
+    <p>{{ self.text }}</p>
+</div>    
