@@ -5,7 +5,7 @@
 
 
 
-<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
@@ -15,7 +15,7 @@
             {% for loop_cycle in self.carousel_images.all %}
                 {% image loop_cycle.carousel_image original as img%}
                 <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <img src="{{ img.url }}" class="d-block img-fluid"  alt="{{ img.alt }} ">
+                    <img src="{{ img.url }}" class="img-responsive"  alt="{{ img.alt }} " >
                 </div>
             {% endfor %}
   </div>
@@ -53,7 +53,7 @@
     </div>
 </div>
 
-<div id="accordion" class="container">
+<div id="accordion" class="container" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
