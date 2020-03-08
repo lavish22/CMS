@@ -13,9 +13,9 @@
   </ol>
   <div class="carousel-inner">
             {% for loop_cycle in self.carousel_images.all %}
-                {% image loop_cycle.carousel_image fill-900x350 as img%}
+                {% image loop_cycle.carousel_image original as img%}
                 <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <img src="{{ img.url }}" class="d-block w-100"  alt="{{ img.alt }} ">
+                    <img src="{{ img.url }}" class="d-block img-fluid"  alt="{{ img.alt }} ">
                 </div>
             {% endfor %}
   </div>

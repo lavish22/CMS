@@ -2,11 +2,10 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
-    <div>        
+    <div class="container pt-4">        
         {{ self.subtitle }} is the subtitle
-    </div>
     {% for block in page.content %}
         {% include_block block %}
     {% endfor %}
-    
+    </div>
 {% endblock %}

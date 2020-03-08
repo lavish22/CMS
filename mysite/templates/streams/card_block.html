@@ -1,22 +1,21 @@
 {% load wagtailimages_tags %}
 
-<div class="container">
-        <h1 class="text-center">{{ self.title }}</h1>
-        <div class="card-deck">
-        {% for card in self.cards %}
-            {% image card.image fill-50x50 as img %}
-            <div class="card">
-                <img src="{{ img.url }}" alt="{{ img.alt }}"class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">{{ card.title }}</h5>
-                <p class="card-text">{{ card.text }}</p>
-                {% if card.button_page %}
-                    <a href="{{ card.button_page.url }}" class="btn btn-primary">Learn more(int)</a>            <!--not SEO friendly-->
-                {% elif card.button_url %}    
-                    <a href="{{ card.button_url }}" class="btn btn-primary">Learn more(ext)</a>                 <!--not SEO friendly-->
-                {% endif %}
-                </div>    
+    <h1 class="font-weight-light text-black">{{ self.title }}</h1>
+    <div class="card-deck">
+    {% for card in self.cards %}
+        {% image card.image fill-300x300 as img %}
+        <div class="card">
+            <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top" alt="member">
+            <div class="card-body">
+            <h5 class="card-title">{{ card.title }}</h5>
+            <p class="card-text">{{ card.text }}</p>
+            {% if card.button_page %}
+                <a href="{{ card.button_page.url }}" class="btn btn-primary">Learn more(int)</a>            <!--not SEO friendly-->
+            {% elif card.button_url %}    
+                <a href="{{ card.button_url }}" class="btn btn-primary">Learn more(ext)</a>                 <!--not SEO friendly-->
+            {% endif %}
             </div>    
-        {% endfor %}
+        </div>    
+    {% endfor %}
     </div>    
-</div>
+

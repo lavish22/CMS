@@ -33,19 +33,19 @@
             
     <div class="col-md-6">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">World</strong>
-            <h3 class="mb-0">{{ post.custom_title }}</h3>
-            <div class="mb-1 text-muted">Nov 12</div>
-            <p class="card-text mb-auto">{{ post.specific.subtitle }}</p>
-            <a href="{{ post.url }}" class="stretched-link">Continue reading</a>
-            </div>
-            <div class="col-auto">
+            <div class="col p-2">
             {% image post.banner_image fill-250x250 as blog_img %}
             <a href="{{ post.url }}">
                     <img src="{{ blog_img.url }}" alt="{{ blog_img.alt }}" style='width: 100%;'>
             </a>   
-        </div>
+            </div>
+            <div class="col p-2 d-flex flex-column position-static">
+            <!--<strong class="d-inline-block mb-2 text-primary">World</strong>-->
+            <h3 class="mb-0">{{ post.custom_title }}</h3>
+            <div class="mb-1 text-muted">{{ post.last_published_at }}</div>
+            <p class="card-text mb-auto">{{ post.specific.subtitle }}</p>
+            <a href="{{ post.url }}" class="stretched-link">Continue reading</a>
+            </div>
     </div>
     
 

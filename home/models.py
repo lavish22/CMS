@@ -67,6 +67,7 @@ class HomePage(RoutablePageMixin, Page):
         MultiFieldPanel(
             [InlinePanel("carousel_images", max_num=5, min_num=1, label="Image")],
             heading="Carousel Images",
+            help_text="45 : 16"
         ),
     ]
 
