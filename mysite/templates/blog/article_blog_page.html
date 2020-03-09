@@ -3,11 +3,9 @@
 {% load wagtailimages_tags wagtailcore_tags %}
 
 {% block content %}
-
-
     
      {% image self.banner_image fill-1200x300 as img %}
-     <div class="jumbotron p-3 p-md-5 text-white rounded" style="background-image: url('{{ img.url }}'); background-size: cover;" >
+     <div class="jumbotron p-3 p-md-5 text-white rounded" style="background-image: url('{{ img.url }}'); background-size: cover; min-height: 300px;" >
         <h3 class="display-4">
             {% if self.custom_title %}
                     {{ self.custom_title }}
@@ -60,22 +58,14 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
-      <h3 class="pb-4 mb-4 font-italic border-bottom">
+      <h3 class="pb-2 mb-1 font-italic">
         From the Firehose
       </h3>
-        {% if self.intro_image %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    {% image self.intro_image fill-400x250 as intro_img %}
-                    <img src="{{ intro_img.url }}" alt="{{ intro_img.alt }}">
-                </div>
-            </div>
-        </div>
-        {% endif %}
+        
+        
       <div class="blog-post">
 
-        <p class="blog-post-meta">written by 
+        <p class="blog-post-meta">{{ self.last_published_at|date}}  written by:
         
         {% for iter in self.blog_authors.all %}
                     
@@ -87,11 +77,21 @@
                         {{ iter.author.name }}
                     {% endif %}
                     
-                {% endfor %}
+        {% endfor %}
         
         </p>
       </div><!-- /.blog-post -->
-
+      <hr>
+      {% if self.intro_image %}
+        
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    {% image self.intro_image fill-400x250 as intro_img %}
+                    <img src="{{ intro_img.url }}" alt="{{ intro_img.alt }}">
+                </div>
+            </div>
+        
+        {% endif %}
  
     
      <div class="blog-post">
@@ -130,10 +130,11 @@
         <h4 class="font-italic">Categories</h4>
         <ol class="list-unstyled">
                     {% for cat in self.categories.all %}
-                        <li>
+                        
                         <a href="?category={{ cat.slug }}">
                             {{ cat.name }}
-                        </a></li>{% if not forloop.last %}, {% endif %}
+                        </a>
+                        {% if not forloop.last %}, {% endif %}
                     {% endfor %}
         </ol>
       </div>
