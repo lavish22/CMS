@@ -37,7 +37,7 @@ except ImportError:
 CACHES = {
     "default": {
          "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-         "LOCATION": "/Users/shahzeb/mysite/cache"
+         "LOCATION": "/Users/shahzeb/cms/cache"
     }
 }
 
