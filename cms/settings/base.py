@@ -16,7 +16,6 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -110,14 +109,21 @@ WSGI_APPLICATION = 'cms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.sqlite3',         #python manage.py dbshell
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   # rm db.sqlite3 then run migrations to clear everything
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+'''
+Role	    Create/view drafts	Publish content	Access Settings
+Editor	        Yes	            No	            No
+Moderator	    Yes	            Yes	            No
+Administrator	Yes	            Yes	            Yes
+'''
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -179,9 +185,12 @@ WAGTAIL_SITE_NAME = "cms"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+BASE_URL = 'http://topsoil.in'
 
 
-RECAPTCHA_PUBLIC_KEY = "6LcJttcUAAAAABvcVswu5TcibaXpjTLDOO-_2Otn"
-RECAPTCHA_PRIVATE_KEY = "6LcJttcUAAAAAOpMBxtpl2hzFI-NewKtzrBo2JaK"
+RECAPTCHA_PUBLIC_KEY = "6LcThOQUAAAAAEs_IKKeWBxSnFkb6seSVMMxLWzS"
+RECAPTCHA_PRIVATE_KEY = "6LcThOQUAAAAAMSnaSI_l_OifnMsh_E47apIkPtT"
 NOCAPTCHA = True
+
+
+

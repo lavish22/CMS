@@ -46,16 +46,16 @@ class HomePage(RoutablePageMixin, Page):
         'wagtailcore.Page'
     ]
     templates = "home/home_page.html"
-    banner_title = models.CharField(max_length = 100,blank=False,null=True )
-    banner_subtitle = RichTextField(features=["bold","italic"])
-    banner_image = models.ForeignKey(
+    banner_title = models.CharField(max_length = 100,blank=True,null=True )     #deadcode
+    banner_subtitle = RichTextField(features=["bold","italic"],blank=True,null=True)    #deadcode
+    banner_image = models.ForeignKey(   #deadcode
         "wagtailimages.Image",
         null=True,
-        blank=False,
+        blank=True,
         on_delete=models.SET_NULL,
         related_name="+"
     )
-    banner_cta = models.ForeignKey(
+    banner_cta = models.ForeignKey(     #deadcode
         "wagtailcore.Page",
         null=True,
         blank=True,
@@ -89,7 +89,7 @@ class HomePage(RoutablePageMixin, Page):
     edit_handler = TabbedInterface(
         [
             ObjectList(content_panels, heading='Content'),
-            ObjectList(banner_panels, heading="Banner Settings"),
+            #ObjectList(banner_panels, heading="Banner Settings"),
             ObjectList(Page.promote_panels, heading='Promotional Stuff'),
             ObjectList(Page.settings_panels, heading='Settings Stuff'),
         ]

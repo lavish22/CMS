@@ -27,11 +27,6 @@ INTERNAL_IPS = [
     # ...
 ]
 
-try:    
-    from .local import *
-except ImportError:
-    pass
-
 # Uncomment this line to enable template caching
 # Dont forget to change the LOCATION path, if changed just delete the cached files
 CACHES = {
@@ -42,11 +37,11 @@ CACHES = {
 }
 
 
+try:    
+    from .local import *
+except ImportError:
+    pass
 
-'''
-SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']           #donot use in prod env.
 
-RECAPTCHA_PUBLIC_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
-NOCAPTCHA = True
-'''
+
+

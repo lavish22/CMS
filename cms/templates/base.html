@@ -1,7 +1,6 @@
 {% load static wagtailuserbar menus_tags cache %}
 
 {% get_menu "main" as navigation %}
-<!--  {% get_menu "footer" as footer_menu %}   -->
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -38,10 +37,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
+                <ul class="navbar-nav mr-auto">                
                 {% cache 604800 navigation %}        <!--cache it for one week, delete cache if changed-->
                     {% for item in navigation.menu_items.all %}
                         <li>
