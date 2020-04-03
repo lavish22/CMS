@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'menus',
     'contact',
     'core',
+    'storages',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',
@@ -75,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
 
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
@@ -155,6 +157,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -170,7 +174,8 @@ STATICFILES_DIRS = [
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # Javascript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/2.2/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
@@ -186,6 +191,18 @@ WAGTAIL_SITE_NAME = "cms"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://topsoil.in'
+
+
+AWS_S3_CUSTOM_DOMAIN = 'topsoil.in'
+AWS_STORAGE_BUCKET_NAME = 'wagtailcms'
+AWS_S3_REGION_NAME = 'us-east-1'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+STATIC_URL = "https://{}/static/".format(AWS_S3_CUSTOM_DOMAIN)
+MEDIA_URL = "https://{}/media/".format(AWS_S3_CUSTOM_DOMAIN)
 
 
 RECAPTCHA_PUBLIC_KEY = "6LcThOQUAAAAAEs_IKKeWBxSnFkb6seSVMMxLWzS"
