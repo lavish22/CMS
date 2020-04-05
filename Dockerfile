@@ -1,11 +1,11 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8
-LABEL version="1.0"
+LABEL version="1.01"
 
 # Set environment varibles
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE=cms.settings.production
-
+#ENV DJANGO_ENV production
 
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install --upgrade pip
@@ -21,7 +21,7 @@ WORKDIR /code/
 
 RUN python manage.py migrate
 
-RUN python manage.py collectstatic --no-input
+#RUN python manage.py collectstatic --no-input
 
 #RUN useradd wagtail
 #RUN chown -R wagtail /code

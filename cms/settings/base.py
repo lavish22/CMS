@@ -193,6 +193,12 @@ WAGTAIL_SITE_NAME = "cms"
 BASE_URL = 'http://topsoil.in'
 
 
+#[default]
+aws_access_key_id='ASIA5ET42LRMQNPR6VWL'
+aws_secret_access_key='mvLtvyWZ0ZYkI4KvChLbwB6XX7HeyZDdHW73kXBi'
+aws_session_token='FwoGZXIvYXdzEGwaDGvI0pbozAtzVz0QhSLJAbJzEmIQwajo7PHAKiABceOISMXUz4SkBKYIPEIqEEoxoNaUJa7nZ7NVzeGsAFmbHRdA3HYS6br6PozTABZYa5j6G16H9H0qzzK7txA90VNCUy7c1R57sc8r64ee4ox6f8ANlQlUHGFNL/263NehP6SF05Ddta/YHKjP0MOaJBxgdNgXDZ4GkZIeI8yL3CgixsbZdvlPeZI7s+LHlNv40lneAxWit1zoBdmkyDEBDewkeqjoxkG+KnOy1pmsXFlDdB23egn9T1Z0/iiYgJ70BTItf1Pt1RtzQGCmTchZ3GWieSyPq9GzGLGBuIHWYqwrzRxpNNxywNfz9gDBj28v'
+
+
 AWS_S3_CUSTOM_DOMAIN = 'topsoil.in'
 AWS_STORAGE_BUCKET_NAME = 'wagtailcms'
 AWS_S3_REGION_NAME = 'us-east-1'
