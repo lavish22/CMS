@@ -10,15 +10,15 @@ class SocialMediaSettings(BaseSetting):
     Social media setting for our custom website
     '''
 
-    facebook = models.URLField(blank=True, null=True, help_text="Facebook Social Media URL") 
-    twitter = models.URLField(blank=True, null=True, help_text="Twitter Social Media URL") 
-    youtube = models.URLField(blank=True, null=True, help_text="Youtube Media URL") 
+    Linkedin = models.URLField(blank=True, null=True, help_text="Linkedin Social Media URL") 
+    Twitter = models.URLField(blank=True, null=True, help_text="Twitter Social Media URL") 
+    Instagram = models.URLField(blank=True, null=True, help_text="Instagram Media URL") 
 
     panels = [
         MultiFieldPanel([
-            FieldPanel("facebook"),               
-            FieldPanel("twitter"),               
-            FieldPanel("youtube"),               
+            FieldPanel("Linkedin"),               
+            FieldPanel("Twitter"),               
+            FieldPanel("Instagram"),               
         ], heading = "Social Media Settings")
     ]
 

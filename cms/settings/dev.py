@@ -26,7 +26,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
     # ...
 ]
-
+'''
 # Uncomment this line to enable template caching
 # Dont forget to change the LOCATION path, if changed just delete the cached files
 CACHES = {
@@ -35,7 +35,7 @@ CACHES = {
          "LOCATION": "/Users/shahzeb/cms/cache"
     }
 }
-
+'''
 
 try:    
     from .local import *

@@ -60,47 +60,85 @@
         {% block content %}{% endblock %}
 
         {% cache 604800 footer %}
-                <footer class="page-footer text-light bg-dark">
-                <div class="container ">
-                    <div class="row">
-                    <div class="col-md-12 py-5">
-                        <div class="mb-5 flex-center text-center">
-                        {% if settings.site_settings.SocialMediaSettings.facebook %}
-                            <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}">
-                                <i class="fab fa-facebook fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                            </a>
-                        {% endif %}
-                        {% if settings.site_settings.SocialMediaSettings.twitter %}
-                        <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}">
-                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                        </a>
-                        {% endif %}
-                        {% if settings.site_settings.SocialMediaSettings.youtube %}
-                        <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}">
-                            <i class="fab fa-youtube fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                        </a>
-                        {% endif %}
-                        {% if settings.site_settings.SocialMediaSettings.linkedin %}
-                        <a class="li-ic">
-                            <i class="fab fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                        </a>
-                        {% endif %}    
-                        {% if settings.site_settings.SocialMediaSettings.instagram %}
-                        <a class="ins-ic">
-                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                        </a>
-                        {% endif %}
-                        <a href="#">  <!--SignUP-->
-                            <i class="fas fa-user-plus fa-lg white-text mr-md-5 mr-3 fa-3x"> </i>
-                        </a>
-                        </div>
-                    </div>
-                    </div> <!-- Grid row-->
+        <footer class="page-footer font-small bg-dark pt-4">
+            <div class="container text-center text-white bg-dark text-md-left">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
+                    <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                    consectetur
+                    adipisicing elit.</p>
                 </div>
-                <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                    <a href="localhost:8000"> Mysite.com </a>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 mx-auto">
+
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                    <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                    </ul>
+
                 </div>
-                </footer>
+                <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+            <hr>
+            <!-- Call to action -->
+            <ul class="list-unstyled list-inline text-center py-2">
+                {% if settings.site_settings.SocialMediaSettings.Linkedin %}
+                    <li class="list-inline-item">
+                    <a class="btn-floating fa-lg btn-li mx-1" href="{{ settings.site_settings.SocialMediaSettings.Linkedin }}" >
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                    </li>
+                {% endif %}    
+                {% if settings.site_settings.SocialMediaSettings.Twitter %}
+                    <li class="list-inline-item">
+                    <a class="btn-floating fa-lg btn-tw mx-1" href="{{ settings.site_settings.SocialMediaSettings.Twitter }}" >
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    </li>
+                {% endif %} 
+                {% if settings.site_settings.SocialMediaSettings.Instagram %}   
+                    <li class="list-inline-item">
+                    <a class="btn-floating fa-lg btn-tw mx-1" href="{{ settings.site_settings.SocialMediaSettings.Instagram }}">
+                        <i class="fab fa-instagram"> </i>
+                    </a>
+                    </li>
+                {% endif %}    
+                <li class="list-inline-item">
+                <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
+            <div class="footer-copyright text-white text-center py-3">© 2020 Copyright:
+                <a href="http://topsoil.in">topsoil.in</a>
+            </div>
+        </footer>
         {% endcache %}
 
         {# Global javascript #}

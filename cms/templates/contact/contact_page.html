@@ -3,39 +3,50 @@
 
 {% block content %}
 
-    <style>
-        .contact-form {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .contact-form li {
-            margin-bottom: 1.5rem;
-        }
-        .contact-form label {
-            display: block;
-            font-weight: bold;
-        }
-        .contact-form .helptext {
-            display: block;
-            font-size: 80%;
-        }
-    </style>
+<section id="contact" class="parallax-section">
+     <div class="container">
+          <div class="row">
+            
 
-    <div class="container mt-5 mb-5">
-        <h1>{{ page.title }}</h1>
-        <p>
-            {{ self.intro|richtext }}
-        </p>
+            <div class="col-md-12 col-sm-12 p-3">
+                    <!-- SECTION TITLE -->
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
+                         <h2>{{ page.title }}</h2>
+                         <p>{{ self.intro|richtext }}</p>
+                    </div>
+            </div>
 
-        <form action="{% pageurl page %}" method="POST">
-            {% csrf_token %}
-            <ul class="contact-form">
-                {{ form.as_ul }}
-            </ul>
+            <div class="col-md-5 col-sm-8">
+                    <!-- CONTACT INFO -->
+                    <div class="wow fadeInUp contact-info" data-wow-delay="0.4s">
+                         <div class="section-title">
+                              <h4>Contact Info</h4>
+                              <p>Below are our Contact info. For quick response please fill out the form with your message. One person from our team will contact you within 24 hrs</p>
+                         </div>
+                         
+                         <p><i class="fa fa-map-marker"></i> New Delhi, India</p>
+                         <p><i class="fa fa-envelope"></i> <a href="mailto:info@company.com"> lavish22@hotmail.com</a></p>
+                    </div>
+                </div>
+                
 
-            <input type="submit" class="btn btn-success">
-            </input>
-        </form>
-    </div>
+            <div class="col-md-7 col-sm-10 p-2">
+                <form action="{% pageurl page %}" method="POST">
+                    {% csrf_token %}
+                     <div class="col-md-6 col-sm-6">
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn-success">
+                    </div>
+                    </input>    
+                </form>    
+            </div>
+
+                
+             </div>
+
+    
+          </div>
+     </div>
+</section>
 
 {% endblock %}
