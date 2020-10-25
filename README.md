@@ -8,7 +8,7 @@ HOW TO RUN
 4. install pipenv
 5. run command --> pipenv shell
 6. pip3 install -r requirements.txt
-7. if you get some error like (unknown locale: UTF-8) run command --> export LC_ALL=en_US.UTF-8\nexport LANG=en_US.UTF-8
+7. if you get some error like (unknown locale: UTF-8) run command --> export LC_ALL=en_US.UTF-8 && export LANG=en_US.UTF-8
 8. python3 manage.py createsuperuser
 9. python3 manage.py makemigrations
 10. python3 manage.py migrate
