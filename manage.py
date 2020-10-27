@@ -11,3 +11,4 @@ if __name__ == "__main__":
 
 
 #sudo ssh -i ec2_key_pair.pem ubuntu@18.234.240.181
+#python3 manage.py runserver --settings=cms.settings.production
