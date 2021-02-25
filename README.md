@@ -16,4 +16,5 @@ HOW TO RUN
 12. make sure you chg AWS credentials in code OR in `cat ~/.aws/credentials`
 13. see the network call and create the S3 bucket accourdingly (give public access)
 14. run `python manage.py collectstatic` to save the static files in S3 bucket
+15. taking a regular backup is necessary - https://www.thegeekdiary.com/how-to-backup-and-restore-docker-containers/
 
