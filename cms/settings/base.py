@@ -194,15 +194,15 @@ BASE_URL = 'http://topsoil.in'
 
 
 #[default]
-aws_access_key_id='ASIA5ET42LRMXHLKB2AH'
-aws_secret_access_key='BZ/EKY0u615MpKNgzF68FJf8GK+5oOIszTJXp+Ht'
+aws_access_key_id='AKIAIIR7OD3OE7734CNA'
+aws_secret_access_key='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'
 aws_session_token='FwoGZXIvYXdzEJ3//////////wEaDPD3KFhdqZ6NnKrPkSLJAQHoV5iSxp4fckCaYihCxlM2X0fzZDNMRjNn+/iJOgNe8vGzz8/RC6Ree56l0ogeyehcuJmdCQKMDE/ABbmg2G3xWLJhlUY69aizjIUcIHsxLkv6lCmq/bMRznmHrV8txRbnQQd7A3F69IrtDA6795FkoGaWgJ+dYv/l0Iezw8NY1BhY+Pl9lYKKdnyNg/LQPdgaO9/20UWrFfaIrXXX1gblscMXdoFa8qx/rxWllmMwnFlwdcEgFM6hU4L2Hxrydn8oA7rHUzOG8Ci666j0BTItMhTbuH0X7YKBeidvUFdKgp1TInDmCt4PdcwyQp8AgbqRQvX0gEFWAmyLmXye'
 
 AWS_S3_CUSTOM_DOMAIN = 'topsoil.in'
 AWS_STORAGE_BUCKET_NAME = 'wagtailcms'
-AWS_S3_REGION_NAME = 'us-east-1'
+AWS_S3_REGION_NAME = 'ap-south-1'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.ap-south-1.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 
 STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
