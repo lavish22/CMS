@@ -190,7 +190,7 @@ WAGTAIL_SITE_NAME = "cms"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://topsoil.in'
+BASE_URL = 'http://legalaid.site'
 
 
 #[default]
@@ -198,7 +198,7 @@ aws_access_key_id='AKIAIIR7OD3OE7734CNA'
 aws_secret_access_key='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'
 aws_session_token='FwoGZXIvYXdzEJ3//////////wEaDPD3KFhdqZ6NnKrPkSLJAQHoV5iSxp4fckCaYihCxlM2X0fzZDNMRjNn+/iJOgNe8vGzz8/RC6Ree56l0ogeyehcuJmdCQKMDE/ABbmg2G3xWLJhlUY69aizjIUcIHsxLkv6lCmq/bMRznmHrV8txRbnQQd7A3F69IrtDA6795FkoGaWgJ+dYv/l0Iezw8NY1BhY+Pl9lYKKdnyNg/LQPdgaO9/20UWrFfaIrXXX1gblscMXdoFa8qx/rxWllmMwnFlwdcEgFM6hU4L2Hxrydn8oA7rHUzOG8Ci666j0BTItMhTbuH0X7YKBeidvUFdKgp1TInDmCt4PdcwyQp8AgbqRQvX0gEFWAmyLmXye'
 
-AWS_S3_CUSTOM_DOMAIN = 'topsoil.in'
+AWS_S3_CUSTOM_DOMAIN = 'legalaid.site'
 AWS_STORAGE_BUCKET_NAME = 'wagtailcms'
 AWS_S3_REGION_NAME = 'ap-south-1'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
