@@ -6,7 +6,7 @@ services:
       context: ./ngnix
       dockerfile: dockerfile
     ports:
-      - 8000:80
+      - 80:80
     depends_on:
       - web
     restart: "on-failure"
@@ -17,7 +17,7 @@ services:
     env_file:
       - .env.prod
     expose:
-      - 8000
+      - 80  
     restart: "on-failure"
 
 
