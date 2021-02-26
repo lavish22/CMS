@@ -27,7 +27,7 @@ RUN python manage.py migrate
 #RUN chown -R wagtail /code
 #USER wagtail
 
-EXPOSE 8000
-CMD exec gunicorn cms.wsgi:application --bind 0.0.0.0:8000 --workers 2 --threads=4 --worker-class=gthread
+EXPOSE 80
+CMD exec gunicorn cms.wsgi:application --bind 0.0.0.0:80 --workers 2 --threads=4 --worker-class=gthread
 
 #docker container run --publish 8000:8000 --detach <wagtail-cms>
