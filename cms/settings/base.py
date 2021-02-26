@@ -194,9 +194,9 @@ BASE_URL = 'http://legalaid.site'
 
 
 #[default]
-aws_access_key_id='AKIAIIR7OD3OE7734CNA'
-aws_secret_access_key='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'
-aws_session_token='FwoGZXIvYXdzEJ3//////////wEaDPD3KFhdqZ6NnKrPkSLJAQHoV5iSxp4fckCaYihCxlM2X0fzZDNMRjNn+/iJOgNe8vGzz8/RC6Ree56l0ogeyehcuJmdCQKMDE/ABbmg2G3xWLJhlUY69aizjIUcIHsxLkv6lCmq/bMRznmHrV8txRbnQQd7A3F69IrtDA6795FkoGaWgJ+dYv/l0Iezw8NY1BhY+Pl9lYKKdnyNg/LQPdgaO9/20UWrFfaIrXXX1gblscMXdoFa8qx/rxWllmMwnFlwdcEgFM6hU4L2Hxrydn8oA7rHUzOG8Ci666j0BTItMhTbuH0X7YKBeidvUFdKgp1TInDmCt4PdcwyQp8AgbqRQvX0gEFWAmyLmXye'
+aws_access_key_id='AKIAIIG57XYNGEQ63FOQ'
+aws_secret_access_key='G9fY/SuwE0SnwRQcQfBQ6e9lgvGmywPirRz8PItBTwEZs'
+#aws_session_token='FwoGZXIvYXdzEJ3//////////wEaDPD3KFhdqZ6NnKrPkSLJAQHoV5iSxp4fckCaYihCxlM2X0fzZDNMRjNn+/iJOgNe8vGzz8/RC6Ree56l0ogeyehcuJmdCQKMDE/ABbmg2G3xWLJhlUY69aizjIUcIHsxLkv6lCmq/bMRznmHrV8txRbnQQd7A3F69IrtDA6795FkoGaWgJ+dYv/l0Iezw8NY1BhY+Pl9lYKKdnyNg/LQPdgaO9/20UWrFfaIrXXX1gblscMXdoFa8qx/rxWllmMwnFlwdcEgFM6hU4L2Hxrydn8oA7rHUzOG8Ci666j0BTItMhTbuH0X7YKBeidvUFdKgp1TInDmCt4PdcwyQp8AgbqRQvX0gEFWAmyLmXye'
 
 AWS_S3_CUSTOM_DOMAIN = 'legalaid.site'
 AWS_STORAGE_BUCKET_NAME = 'wagtailcms'
