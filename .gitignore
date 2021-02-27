@@ -13,6 +13,7 @@ local.py
 *.todo
 .vimcache
 .vscode
+.idea
 
 # Packages
 *.7z

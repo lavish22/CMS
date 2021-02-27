@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  nginx:
+    build:
+      context: ./ngnix
+      dockerfile: dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    restart: "on-failure"
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile    #build the image for the web service from the dockerfile in parent directory
+    env_file:
+      - .env.prod
+    expose:
+      - 80  
+    restart: "on-failure"
+
+
+
+
+volumes:
+  static_volume:
