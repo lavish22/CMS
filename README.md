@@ -16,5 +16,5 @@ HOW TO RUN
 12. make sure you chg AWS credentials in code OR in `cat ~/.aws/credentials`
 13. see the network call and create the S3 bucket accourdingly (give public access)
 14. run `python manage.py collectstatic` to save the static files in S3 bucket
-15. taking a regular backup is necessary - https://www.thegeekdiary.com/how-to-backup-and-restore-docker-containers/
+15. keep backing up db.sqlite3 which is inside the container, if container is rebuild. you will lose all your data. for any new feature go inside the container pull the changes and then restart the container.
 
