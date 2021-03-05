@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="container pt-4">        
-        {{ self.subtitle }} is the subtitle
+        <h3>{{ self.subtitle }}</h3>
     {% for block in page.content %}
         {% include_block block %}
     {% endfor %}
