@@ -14,6 +14,12 @@
             {% image loop_cycle.carousel_image original as img%}
                 <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
                     <img src="{{ img.url }}" class="img-responsive"  alt="{{ img.alt }} " >
+                    <div class="container">
+                        <div class="carousel-caption text-left">
+                          <h1>WELCOME</h1>
+                          <p>We are happy to help you please browse to know more about us.</p>
+                        </div>
+                      </div>
                 </div>
         {% endfor %}
     </div>
